@@ -1,6 +1,6 @@
 package dao;
 
-public class UserInfo {
+public class UserInfo {//用户信息表
 
 	int id;//主键
 	String account;//帐户名

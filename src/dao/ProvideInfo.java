@@ -1,6 +1,6 @@
 package dao;
 
-public class ProvideInfo {
+public class ProvideInfo {//供应商信息表
 
 	int id;//主键
 	String cName;//供应商姓名
@@ -13,6 +13,7 @@ public class ProvideInfo {
 	String netAddress;//主页
 	String emailAddress;//电子邮箱地址
 	String remark;//备注信息
+	
 	/**
 	 * @return id
 	 */

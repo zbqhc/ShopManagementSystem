@@ -1,6 +1,6 @@
 package dao;
 
-public class DetailInfo {
+public class DetailInfo {//详细信息表
 
 	int id;//主键
 	int hid;//员工信息与基本信息表对应
@@ -9,6 +9,7 @@ public class DetailInfo {
 	String fax;//传真
 	String email;//电子邮箱
 	String faddress;//家庭地址
+	
 	/**
 	 * @return id
 	 */

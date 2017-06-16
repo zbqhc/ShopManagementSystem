@@ -1,6 +1,6 @@
 package dao;
 
-public class JoinDepot {
+public class JoinDepot {//仓库入库表
 
 	int id;//主键
 	String oid;//订货编号
@@ -9,6 +9,7 @@ public class JoinDepot {
 	String joinTime;//入库时间
 	float weight;//货品重量
 	String remark;//备注信息
+	
 	/**
 	 * @return id
 	 */

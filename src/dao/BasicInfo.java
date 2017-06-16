@@ -2,15 +2,16 @@ package dao;
 
 import java.util.Date;
 
-public class BasicInfo {
+public class BasicInfo {//基本信息表
 
 	int id;//ID
 	String name;//姓名
 	int sex;//性别1:男 0：女
-	Date birth;//出生日期
+	String birth;//出生日期
 	int dept;//部门
 	int headship;//职务
-	public BasicInfo(int id, String name, int sex, Date birth, int dept,
+	
+	public BasicInfo(int id, String name, int sex, String birth, int dept,
 			int headship) {
 		super();
 		this.id = id;
@@ -63,14 +64,14 @@ public class BasicInfo {
 	/**
 	 * @return birth
 	 */
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
 	/**
-	 * @param birth 要设置的 birth
+	 * @param string 要设置的 birth
 	 */
-	public void setBirth(Date birth) {
-		this.birth = birth;
+	public void setBirth(String string) {
+		this.birth = string;
 	}
 	/**
 	 * @return dept
