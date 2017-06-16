@@ -6,10 +6,24 @@ public class BasicInfo {
 
 	int id;//ID
 	String name;//姓名
-	int sex;//性别
+	int sex;//性别1:男 0：女
 	Date birth;//出生日期
 	int dept;//部门
 	int headship;//职务
+	public BasicInfo(int id, String name, int sex, Date birth, int dept,
+			int headship) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.sex = sex;
+		this.birth = birth;
+		this.dept = dept;
+		this.headship = headship;
+	}
+	public BasicInfo() {
+		System.out.println("basicinfo running");
+		// TODO 自动生成的构造函数存根
+	}
 	/**
 	 * @return id
 	 */

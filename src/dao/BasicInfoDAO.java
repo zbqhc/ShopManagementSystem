@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-public interface BasicInfoDAO extends DAO {
+public interface BasicInfoDAO{
 
 	public void insert(BasicInfo basicMessage) throws Exception ;  
     // 修改操作  
@@ -13,4 +13,6 @@ public interface BasicInfoDAO extends DAO {
     public BasicInfo queryById(int userid) throws Exception ;  
     // 查询全部  
     public List queryAll() throws Exception ;  
+    
+   
 }

@@ -41,5 +41,14 @@ public class UserInfo {
 	public void setKeyWord(String keyWord) {
 		this.keyWord = keyWord;
 	}
+	public UserInfo(int id, String account, String keyWord) {
+		super();
+		this.id = id;
+		this.account = account;
+		this.keyWord = keyWord;
+	}
+	public UserInfo() {
+		
+	}
 	
 }

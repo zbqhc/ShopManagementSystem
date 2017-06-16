@@ -21,6 +21,20 @@ public class JoinDepot {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public JoinDepot() {
+		
+	}
+	public JoinDepot(int id, String oid, int dId, String wareName,
+			String joinTime, float weight, String remark) {
+		super();
+		this.id = id;
+		this.oid = oid;
+		this.dId = dId;
+		this.wareName = wareName;
+		this.joinTime = joinTime;
+		this.weight = weight;
+		this.remark = remark;
+	}
 	/**
 	 * @return oid
 	 */

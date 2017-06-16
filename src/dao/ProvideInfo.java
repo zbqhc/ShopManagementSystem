@@ -25,6 +25,26 @@ public class ProvideInfo {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public ProvideInfo() {
+		
+		
+	}
+	public ProvideInfo(int id, String cName, String address, String linkMan,
+			String linkPhone, String faxes, String postNum, String bankNum,
+			String netAddress, String emailAddress, String remark) {
+		super();
+		this.id = id;
+		this.cName = cName;
+		this.address = address;
+		this.linkMan = linkMan;
+		this.linkPhone = linkPhone;
+		this.faxes = faxes;
+		this.postNum = postNum;
+		this.bankNum = bankNum;
+		this.netAddress = netAddress;
+		this.emailAddress = emailAddress;
+		this.remark = remark;
+	}
 	/**
 	 * @return cName
 	 */

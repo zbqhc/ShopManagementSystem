@@ -15,6 +15,20 @@ public class DetailInfo {
 	public int getId() {
 		return id;
 	}
+	public DetailInfo() {
+		
+	}
+	public DetailInfo(int id, int hid, String contact, String officePhone,
+			String fax, String email, String faddress) {
+		super();
+		this.id = id;
+		this.hid = hid;
+		this.contact = contact;
+		this.officePhone = officePhone;
+		this.fax = fax;
+		this.email = email;
+		this.faddress = faddress;
+	}
 	/**
 	 * @param id ÒªÉèÖÃµÄ id
 	 */
