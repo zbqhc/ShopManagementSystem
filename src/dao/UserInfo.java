@@ -7,14 +7,12 @@ public class UserInfo {//用户信息表
 	String keyWord;//密码
 	int headship;
 	String timeStamp;
-	public UserInfo(int id, String account, String keyWord, int headship,
-			String timeStamp) {
+	public UserInfo(int id, String account, String keyWord, int headship) {
 		super();
 		this.id = id;
 		this.account = account;
 		this.keyWord = keyWord;
 		this.headship = headship;
-		this.timeStamp = timeStamp;
 	}
 
 	
@@ -100,12 +98,7 @@ public class UserInfo {//用户信息表
 
 
 
-	/**
-	 * @param timeStamp 要设置的 timeStamp
-	 */
-	public void setTimeStamp(String timeStamp) {
-		this.timeStamp = timeStamp;
-	}
+	
 
 
 

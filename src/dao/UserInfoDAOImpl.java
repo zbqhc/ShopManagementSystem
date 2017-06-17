@@ -16,8 +16,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	DatabaseConnection db = new DatabaseConnection();
 	Connection conn = db.getConn();
 
-	public int addUser(int userid, String account, String keyword,
-			int headship) throws Exception {
+	public int addUser(UserInfo userInfo) throws Exception {
 		// TODO 自动生成的方法存根
 		Date now = new Date(); //获取当前时间
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -25,12 +24,12 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		Statement stmt = conn.createStatement();
 		String sql = "INSERT INTO UserInfo (ID,ACCOUNT,KEYWORD,HEADSHIP,TIMESTAMP) "
 				+ "VALUES ("
-				+ userid
+				+ userInfo.getId()
 				+ ",'"
-				+ account
+				+ userInfo.getAccount()
 				+ "','"
-				+ EncoderHash.encode("SHA1", userid + "lntu" + keyword)
-				+ "', " + headship + ",'" + timeStamp + "');";
+				+ EncoderHash.encode("SHA1",  userInfo.getId() + "lntu" + userInfo.getKeyWord())
+				+ "', " + userInfo.getHeadship() + ",'" + timeStamp + "');";
 		int res = 0;
 		try {
 			System.out.println(sql);
@@ -124,7 +123,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			userInfo.setAccount(rs.getString("ACCOUNT"));
 			userInfo.setHeadship(rs.getInt("HEADSHIP"));
 			userInfo.setKeyWord(rs.getString("KEYWORD"));
-			userInfo.setTimeStamp(rs.getString("TIMESTAMP"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("查询失败");
@@ -149,7 +147,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			userInfo.setAccount(rs.getString("ACCOUNT"));
 			userInfo.setHeadship(rs.getInt("HEADSHIP"));
 			userInfo.setKeyWord(rs.getString("KEYWORD"));
-			userInfo.setTimeStamp(rs.getString("TIMESTAMP"));
 			listUserInfo.add(userInfo);
 		}
 		rs.close();
@@ -170,7 +167,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			userInfo.setAccount(rs.getString("ACCOUNT"));
 			userInfo.setHeadship(rs.getInt("HEADSHIP"));
 			userInfo.setKeyWord(rs.getString("KEYWORD"));
-			userInfo.setTimeStamp(rs.getString("TIMESTAMP"));
 			listUserInfo.add(userInfo);
 		}
 		rs.close();

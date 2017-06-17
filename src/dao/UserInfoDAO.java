@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface UserInfoDAO extends DAO {
 
-	public int addUser(int userid, String account, String keyword, int headship)
+	public int addUser(UserInfo userInfo)
 			throws Exception;
 
 	// ÐÞ¸Ä²Ù×÷
