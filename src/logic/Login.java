@@ -24,13 +24,35 @@ public class Login {
 		
 	}
 
-	public int Register(int id,String account,String keyword,int headship) throws Exception{//0为成功，1为失败
+	public int Register(int id,String account,String keyword,int headship) throws Exception{
+		//注册账号，0为成功，-1为失败
 		UserInfoDAO userinfodao1 = DAOFactory.getDAO("登录信息");
-		if(userinfodao1.addUser(new UserInfo(id,account,keyword,headship))==0){
+		int r  =  userinfodao1.addUser(new UserInfo(id,account,keyword,headship));
+		if(r==0){
 			return 0;
 		}else{
 			return -1;
 		}
 		
 	}
+	
+	public int Canaellation(int id) throws Exception{
+		//注销账号，0为成功，-1为失败
+		UserInfoDAO userinfodao2 = DAOFactory.getDAO("登录信息");
+		int c =userinfodao2.delUser(id);
+		if(c==0){
+		return 0;
+		}
+		else{
+		return -1;	
+		}
+	}
+	
+//	public int modifyKeyword(int id,String keyword) throws Exception{
+//		//修改密码
+//		UserInfoDAO userinfodao3 = DAOFactory.getDAO("登录信息");
+//		userinfodao3.updateUser(id, null, id);
+//		return 0;
+//		
+//	}
 }
