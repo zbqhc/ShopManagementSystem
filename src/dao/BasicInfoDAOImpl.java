@@ -19,7 +19,7 @@ public class BasicInfoDAOImpl implements BasicInfoDAO {
 	}
 
 
-	public void addUser(BasicInfo basicInfo) throws Exception {
+	public int addUser(BasicInfo basicInfo) throws Exception {
 		// TODO 自动生成的方法存根
 		int id = basicInfo.id;// ID
 		String name = basicInfo.name;// 姓名
@@ -27,7 +27,7 @@ public class BasicInfoDAOImpl implements BasicInfoDAO {
 		String birth = basicInfo.birth;// 出生日期
 		int dept = basicInfo.dept;// 部门
 		int headship = basicInfo.headship;// 职务
-
+		int res=0;
 		Statement stmt = conn.createStatement();
 		String sql = "INSERT INTO BasicInfo (ID,NAME,SEX,BIRTH,DEPT,HEADSHIP) "
 				+ "VALUES (" + id + ",'" + name + "'," + sex + ", '" + birth
@@ -38,14 +38,17 @@ public class BasicInfoDAOImpl implements BasicInfoDAO {
 		} catch (SQLException e) {
 			if (e.getErrorCode()==19){
 				System.out.println("主键重复");
+				res-=1;
 				e.printStackTrace();
 			}
 			System.out.println("插入失败");
+			res-=1;
 		}
 		stmt.close();
+		return res;
 	}
 	
-	public void updateUser(BasicInfo basicInfo) throws Exception {
+	public int updateUser(BasicInfo basicInfo) throws Exception {
 		// TODO 自动生成的方法存根
 		int id = basicInfo.id;// ID
 		String name = basicInfo.name;// 姓名
@@ -57,30 +60,35 @@ public class BasicInfoDAOImpl implements BasicInfoDAO {
 		Statement stmt = conn.createStatement();
 		String sql = "UPDATE BasicInfo SET NAME='"+name+"' ,SEX="+sex+" ,BIRTH='"+birth+"' ,DEPT="+dept+" ,HEADSHIP= "+headship+" WHERE ID ="+id;
 		System.out.println(sql);
+		int res=0;
 		try {
 			stmt.executeUpdate(sql);
 			System.out.println("更新成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("更新失败");
+			res=-1;
 		}
 		stmt.close();
+		return res;
 
 	}
 
-	public void delUser(int userid) throws Exception {
+	public int delUser(int userid) throws Exception {
 		// TODO 自动生成的方法存根
 		Statement stmt = conn.createStatement();
 		String sql = " DELETE FROM BasicInfo WHERE ID = "+userid;
-
+		int res=0;
 		try {
 			stmt.executeUpdate(sql);
 			System.out.println("删除成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("删除失败");
+			res=-1;
 		}
 		stmt.close();
+		return res;
 	}
 
 	public BasicInfo queryById(int userid) throws Exception {

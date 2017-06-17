@@ -51,19 +51,19 @@ public class DAOFactory {
 
 	}
 
-	public static void main(String[] args) throws Exception {
-		// System.out.println(new BasicInfo());
-		BasicInfoDAO dao = (BasicInfoDAO) DAOFactory.getDAO("基本信息");
-		for (int i = 3000; i < 2000; i++) {
-			dao.addUser(new BasicInfo(i, "李天聪" + 1, 1, "1997-03-04", 10003 + i,
-					9123654 - i));
-			System.out.print(i);
-		}
-		List<BasicInfo> que = dao.queryAll();
-		for (BasicInfo basicInfo:que){
-			System.out.println(basicInfo.getId());
-		}
-		
-	}
+//	public static void main(String[] args) throws Exception {
+//		// System.out.println(new BasicInfo());
+//		BasicInfoDAO dao = (BasicInfoDAO) DAOFactory.getDAO("基本信息");
+//		for (int i = 3000; i < 2000; i++) {
+//			dao.addUser(new BasicInfo(i, "李天聪" + 1, 1, "1997-03-04", 10003 + i,
+//					9123654 - i));
+//			System.out.print(i);
+//		}
+//		List<BasicInfo> que = dao.queryAll();
+//		for (BasicInfo basicInfo:que){
+//			System.out.println(basicInfo.getId());
+//		}
+//		
+//	}
 
 }

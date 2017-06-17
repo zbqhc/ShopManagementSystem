@@ -6,18 +6,14 @@ import dao.*;
 
 public class HowToUse {
 
-	public void main() throws Exception {
-		// TODO 自动生成的方法存根
-		BasicInfoDAO basicInfoDAO = DAOFactory.getDAO("基本信息");
-		basicInfoDAO.addUser(new BasicInfo(1520010912,"李天聪",1,"1997-04-12",100013,915465));//添加用户
-		basicInfoDAO.addUser(new BasicInfo(1520010920,"孙振洲",1,"1997-07-12",100014,915466));//添加用户
-		basicInfoDAO.addUser(new BasicInfo(1520010924,"尹志鹏",1,"1999-11-07",100015,915467));//添加用户
-		basicInfoDAO.delUser(1520010920);														//删除用户
-		basicInfoDAO.updateUser(new BasicInfo(1520010912,"李天一",1,"1997-04-12",100013,915465));//更新用户信息
-		List<BasicInfo> newList = basicInfoDAO.queryAll(50, 10);//获取50~60用户信息到list
-		for (BasicInfo i:newList){
-			System.out.print(i.getId());
-			System.out.println(i.getName());
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) throws Exception {
+		UserInfoDAO userInfoDAO = DAOFactory.getDAO("登录信息");
+//		userInfoDAO.addUser(1520010900,"软件15-9","lntu",15);//添加用户
+//		userInfoDAO.delUser(1520010924);
+//		userInfoDAO.updateUser(1520010924, "new", 9999);
+		for (UserInfo i:(List<UserInfo>) userInfoDAO.queryAll()){
+			System.out.println(i.getAccount());
 		}
 	}
 }
