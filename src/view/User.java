@@ -78,7 +78,7 @@ public class User extends JFrame {
 		final JButton mokuai5 = new JButton();
 		mokuai5.setBounds(0, 450, 125, 50);
 		mokuai5.setText("·µ»ØµÇÂ¼");
-		topPanel.add(mokuai5);
+		topPanel.add(mokuai5);   //5
 	}
           
 }
