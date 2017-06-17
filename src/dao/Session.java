@@ -2,10 +2,10 @@ package dao;
 
 public class Session {
 
-	int id;//会话id
+	String id;//会话id
 	int uid;//用户id
 	String timestamp;//时间戳
-	public Session(int id, int uid, String timestamp) {
+	public Session(String id, int uid, String timestamp) {
 		super();
 		this.id = id;
 		this.uid = uid;
@@ -14,13 +14,13 @@ public class Session {
 	/**
 	 * @return id
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	/**
 	 * @param id 要设置的 id
 	 */
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	/**
