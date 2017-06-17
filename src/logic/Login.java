@@ -28,11 +28,7 @@ public class Login {
 		//注册账号，0为成功，-1为失败
 		UserInfoDAO userinfodao1 = DAOFactory.getDAO("登录信息");
 		int r  =  userinfodao1.addUser(new UserInfo(id,account,keyword,headship));
-		if(r==0){
-			return 0;
-		}else{
-			return -1;
-		}
+		return r;
 		
 	}
 	
@@ -40,12 +36,7 @@ public class Login {
 		//注销账号，0为成功，-1为失败
 		UserInfoDAO userinfodao2 = DAOFactory.getDAO("登录信息");
 		int c =userinfodao2.delUser(id);
-		if(c==0){
-		return 0;
-		}
-		else{
-		return -1;	
-		}
+		return c;
 	}
 	
 //	public int modifyKeyword(int id,String keyword) throws Exception{
