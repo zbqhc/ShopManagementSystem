@@ -23,7 +23,7 @@ public class SessionDAOImpl implements SessionDAO {
 			stmt = conn.createStatement();
 
 			String sql = "INSERT INTO Session (ID,UID,TIMESTAMP) "
-					+ "VALUES (''" + sid + "'," + userid + ",'" + timenow
+					+ "VALUES ('" + sid + "'," + userid + ",'" + timenow
 					+ "');";
 			int res = 0;
 			try {
@@ -78,14 +78,14 @@ public class SessionDAOImpl implements SessionDAO {
 		return res;
 	}
 
-	public int destroySessionByID(int id) {
+	public int destroySessionByID(String id) {
 		// TODO 自动生成的方法存根
 		Statement stmt;
 		int res = 0;
 		try {
 			stmt = conn.createStatement();
-		String sql = " DELETE FROM Session WHERE ID = " + id;
-		
+		String sql = " DELETE FROM Session WHERE ID = '" + id+"'";
+		System.out.println(sql);
 		try {
 			if (stmt.executeUpdate(sql) == 0) {
 				System.out.println("找不到目标记录");
@@ -110,6 +110,16 @@ public class SessionDAOImpl implements SessionDAO {
 	public Map<String, Boolean> checkSession(Session session) {
 		// TODO 自动生成的方法存根
 		return null;
+	}
+
+	public int destroySessionByUID(String id) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+
+	public int destroySessionByID(int uid) {
+		// TODO 自动生成的方法存根
+		return 0;
 	}
 
 }
