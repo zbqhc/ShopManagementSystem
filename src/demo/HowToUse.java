@@ -2,19 +2,22 @@ package demo;
 
 import java.util.List;
 
+import tools.Timenow;
 import dao.*;
 
 public class HowToUse {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-		JoinDepotDAO joinDepotDAO = DAOFactory.getDAO("仓库信息");//从dao工厂获取dao的实现对象
+		JoinDepotDAO joinDepotDAO = DAOFactory.getDAO("仓库信息");// 从dao工厂获取dao的实现对象
+
+//		 joinDepotDAO.updateItem(new JoinDepot(1520010925, "Ex1003", 10003,
+//		 "显示器", Timenow.getTimeNow(), 100, 20, "无"));
 		
-//		sessiondao.getSession(1520010925);
-//		for(int i=0;i<20;i++){
-//		detailInfoDAO.addUser(new DetailInfo(15200+i+100,"111"+i,i+"6666","11331","114741","155511"));
-//		}
-		
-//		System.out.println(detailInfoDAO.queryById(15200).getEmail());
+		 for (JoinDepot i:(List<JoinDepot>)joinDepotDAO.queryAll(0,1)){
+			 System.out.println(i.getId());
+			 
+		 }
+//		joinDepotDAO.delItem(100);
 	}
 }
