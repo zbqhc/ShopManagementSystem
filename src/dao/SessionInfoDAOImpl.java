@@ -8,12 +8,12 @@ import java.util.Map;
 import tools.EncoderHash;
 import tools.Timenow;
 
-public class SessionDAOImpl implements SessionDAO {
+public class SessionInfoDAOImpl implements SessionInfoDAO {
 
 	DatabaseConnection db = new DatabaseConnection();
 	Connection conn = db.getConn();
 
-	public Session getSession(int userid) {
+	public SessionInfo getSessionInfo(int userid) {
 		// TODO 自动生成的方法存根
 		String timenow = Timenow.getTimeNow();
 
@@ -22,7 +22,7 @@ public class SessionDAOImpl implements SessionDAO {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = "INSERT INTO Session (ID,UID,TIMESTAMP) "
+			String sql = "INSERT INTO SessionInfo (ID,UID,TIMESTAMP) "
 					+ "VALUES ('" + sid + "'," + userid + ",'" + timenow
 					+ "');";
 			int res = 0;
@@ -45,17 +45,17 @@ public class SessionDAOImpl implements SessionDAO {
 			// TODO 自动生成的 catch 块
 			e1.printStackTrace();
 		}
-		return new Session(sid, userid, timenow);
+		return new SessionInfo(sid, userid, timenow);
 
 	}
 
-	public int destroySessionByUID(int uid) {
+	public int destroySessionInfoByUID(int uid) {
 		// TODO 自动生成的方法存根
 		Statement stmt;
 		int res = 0;
 		try {
 			stmt = conn.createStatement();
-		String sql = " DELETE FROM Session WHERE UID = " + uid;
+		String sql = " DELETE FROM SessionInfo WHERE UID = " + uid;
 		
 		try {
 			if (stmt.executeUpdate(sql) == 0) {
@@ -78,13 +78,13 @@ public class SessionDAOImpl implements SessionDAO {
 		return res;
 	}
 
-	public int destroySessionByID(String id) {
+	public int destroySessionInfoByID(String id) {
 		// TODO 自动生成的方法存根
 		Statement stmt;
 		int res = 0;
 		try {
 			stmt = conn.createStatement();
-		String sql = " DELETE FROM Session WHERE ID = '" + id+"'";
+		String sql = " DELETE FROM SessionInfo WHERE ID = '" + id+"'";
 		System.out.println(sql);
 		try {
 			if (stmt.executeUpdate(sql) == 0) {
@@ -107,17 +107,18 @@ public class SessionDAOImpl implements SessionDAO {
 		return res;
 	}
 
-	public Map<String, Boolean> checkSession(Session session) {
+	public Map<String, Boolean> checkSessionInfo(SessionInfo sessionInfo) {
 		// TODO 自动生成的方法存根
+		
 		return null;
 	}
 
-	public int destroySessionByUID(String id) {
+	public int destroySessionInfoByUID(String id) {
 		// TODO 自动生成的方法存根
 		return 0;
 	}
 
-	public int destroySessionByID(int uid) {
+	public int destroySessionInfoByID(int uid) {
 		// TODO 自动生成的方法存根
 		return 0;
 	}
