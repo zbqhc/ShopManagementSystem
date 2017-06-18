@@ -3,12 +3,26 @@ package logic;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import tools.Timenow;
+
 public class Session {
 
 	
 	private int id;
 	private String password;
-	
+	private static String time = Timenow.getTimeNow();
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public static String getTime() {
+		return time;
+	}
+	public static void setTime(String time) {
+		Session.time = time;
+	}
 	public Session(int id, String password) {
 	
 		// TODO Auto-generated constructor stub
@@ -16,12 +30,8 @@ public class Session {
 		this.id=id;
 		this.password=password;
 	}
-	public int getName() {
-		return id;
-	}
-	public void setName(int id) {
-		this.id = id;
-	}
+	
+	
 	public String getPassword() {
 		return password;
 	}
@@ -29,9 +39,6 @@ public class Session {
 		this.password = password;
 	}
 	
-	private static String time;//当前系统时间
-	public static void main(String args[]){
-		SimpleDateFormat df = new SimpleDateFormat();
-		time=df.format(new Date());
-	}
+	;//当前系统时间
+	
 }
