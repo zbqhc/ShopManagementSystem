@@ -3,7 +3,6 @@ package dao;
 public class DetailInfo {//详细信息表
 
 	int id;//主键
-	int hid;//员工信息与基本信息表对应
 	String contact;//联系电话
 	String officePhone;//办公电话
 	String fax;//传真
@@ -19,11 +18,10 @@ public class DetailInfo {//详细信息表
 	public DetailInfo() {
 		
 	}
-	public DetailInfo(int id, int hid, String contact, String officePhone,
+	public DetailInfo(int id, String contact, String officePhone,
 			String fax, String email, String faddress) {
 		super();
 		this.id = id;
-		this.hid = hid;
 		this.contact = contact;
 		this.officePhone = officePhone;
 		this.fax = fax;
@@ -36,18 +34,7 @@ public class DetailInfo {//详细信息表
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * @return hid
-	 */
-	public int getHid() {
-		return hid;
-	}
-	/**
-	 * @param hid 要设置的 hid
-	 */
-	public void setHid(int hid) {
-		this.hid = hid;
-	}
+	
 	/**
 	 * @return contact
 	 */

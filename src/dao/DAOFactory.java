@@ -41,7 +41,7 @@ public class DAOFactory {
 		}
 
 		try {
-			System.out.println(interfaceClass);
+			System.out.println("run   "+prop.getProperty(interfaceClass));
 			return (T) Class.forName(prop.getProperty(interfaceClass))
 					.newInstance();
 		} catch (Exception e) {

@@ -8,9 +8,15 @@ public class HowToUse {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-		SessionDAO sessiondao = DAOFactory.getDAO("会话信息");//从dao工厂获取dao的实现对象
+		DetailInfoDAO detailInfoDAO = DAOFactory.getDAO("详细信息");//从dao工厂获取dao的实现对象
 		
 //		sessiondao.getSession(1520010925);
-		sessiondao.destroySessionByID("E67EBC69F9A3F9493FB9FEBD1BDC0E37B168F7E5");
+//		for(int i=0;i<20;i++){
+//		detailInfoDAO.addUser(new DetailInfo(15200+i+100,"111"+i,i+"6666","11331","114741","155511"));
+//		}
+		for (DetailInfo i:detailInfoDAO.queryAll(0,3)){
+			System.out.println(i.getContact());
+		}
+//		System.out.println(detailInfoDAO.queryById(15200).getEmail());
 	}
 }
