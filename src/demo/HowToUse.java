@@ -9,15 +9,14 @@ public class HowToUse {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-		JoinDepotDAO joinDepotDAO = DAOFactory.getDAO("仓库信息");// 从dao工厂获取dao的实现对象
+		ProvideInfoDAO provideInfoDAO = DAOFactory.getDAO("供应商信息");// 从dao工厂获取dao的实现对象
 
-//		 joinDepotDAO.updateItem(new JoinDepot(1520010925, "Ex1003", 10003,
-//		 "显示器", Timenow.getTimeNow(), 100, 20, "无"));
+		 provideInfoDAO.addUser(new ProvideInfo(1520010923, "A-58", "耘02", "龙", "15541234", "10003", "12505", "6704002365699", "http://zbqhc.net/", "i@zbqhc.net", "无"));
+		 
 		
-		 for (JoinDepot i:(List<JoinDepot>)joinDepotDAO.queryAll(0,1)){
+		 for (ProvideInfo i:(List<ProvideInfo>)provideInfoDAO.queryAll(1,1)){
 			 System.out.println(i.getId());
 			 
 		 }
-//		joinDepotDAO.delItem(100);
 	}
 }
