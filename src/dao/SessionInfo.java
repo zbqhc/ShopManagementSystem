@@ -5,6 +5,7 @@ public class SessionInfo {
 	String id;//会话id
 	int uid;//用户id
 	String timestamp;//时间戳
+	
 	public SessionInfo(String id, int uid, String timestamp) {
 		super();
 		this.id = id;

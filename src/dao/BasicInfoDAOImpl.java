@@ -106,6 +106,7 @@ public class BasicInfoDAOImpl implements BasicInfoDAO {
 		}catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("≤È—Ø ß∞‹");
+			return null;
 		}
 		
 		return basicInfo;
