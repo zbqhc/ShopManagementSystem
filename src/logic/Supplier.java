@@ -26,7 +26,12 @@ public class Supplier {
 		}
 		public List querySupplier(int id) throws Exception{//查询某个供应商信息
 			ProvideInfoDAO provideinfo3 = DAOFactory.getDAO("供应商信息");
-			List list = provideinfo3.queryAll(id, id);
+			List list = provideinfo3.queryAll(id, 1);
+			return list;
+		}
+		public List querySupplierMiddle(int id,int number) throws Exception{//查询某个供应商信息
+			ProvideInfoDAO provideinfo3 = DAOFactory.getDAO("供应商信息");
+			List list = provideinfo3.queryAll(id, number);
 			return list;
 		}
 		public int modifySupplierCName(int id,String cName) throws Exception{//修改某个供应商的某个信息，有多少个属性要多少个方法
