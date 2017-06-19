@@ -1,22 +1,27 @@
 package logic;
 
 import dao.DAOFactory;
+import dao.SessionInfo;
+import dao.SessionInfoDAO;
 import dao.UserInfo;
 import dao.UserInfoDAO;
 
 public class Login {
 //登录
-	public  Session contrastLogin(int id,String password) throws Exception{
+	public  int contrastLogin(int id,String password) throws Exception{
 	
 		//调用数据库，取出用户名和密码
 		UserInfoDAO userinfodao = DAOFactory.getDAO("登录信息");
 		
 		
 			if(userinfodao.checkUser(id, password)==0){//用户名密码做对比
-				return new Session(id,password);
+				SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
+				SessionInfo user =sessioninfo.getSessionInfo(id);
+				int userId=user.getUid();
+				return userId;
 			}else
 			{
-			return null;
+			return -1;
 			}
 		
 			
