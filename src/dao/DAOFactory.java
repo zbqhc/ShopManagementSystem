@@ -21,10 +21,12 @@ public class DAOFactory {
 					"src/dao/daofactory.properties");
 			prop.load(in);
 			Iterator<String> it = prop.stringPropertyNames().iterator();
+			System.out.println("=======来自DAO工厂类的消息======");
 			while (it.hasNext()) {
 				String key = it.next();
 				System.out.println(key + ":" + prop.getProperty(key));
 			}
+			System.out.println("=======DAO工厂类的消息结束======\n");
 			in.close();
 		} catch (FileNotFoundException e1) {
 			// TODO 自动生成的 catch 块
@@ -41,7 +43,8 @@ public class DAOFactory {
 		}
 
 		try {
-			System.out.println(interfaceClass);
+			System.out.println("工厂类实例化："+prop.getProperty(interfaceClass));
+			System.out.println();
 			return (T) Class.forName(prop.getProperty(interfaceClass))
 					.newInstance();
 		} catch (Exception e) {

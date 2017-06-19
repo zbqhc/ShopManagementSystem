@@ -7,6 +7,8 @@ public class UserInfo {//用户信息表
 	String keyWord;//密码
 	int headship;
 	String timeStamp;
+	
+	
 	public UserInfo(int id, String account, String keyWord, int headship) {
 		super();
 		this.id = id;
