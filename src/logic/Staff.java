@@ -33,7 +33,13 @@ public class Staff {
 	public List queryStaff(int id) throws Exception{
 		//查询某个员工
 		BasicInfoDAO basicInfo3 = DAOFactory.getDAO("基本信息");
-		List<BasicInfo> list = basicInfo3.queryAll(id, id);
+		List<BasicInfo> list = basicInfo3.queryAll(id, 1);
+		return list;
+	}
+	public List queryStaffMiddle(int id,int number) throws Exception{
+		//查询某个员工
+		BasicInfoDAO basicInfo3 = DAOFactory.getDAO("基本信息");
+		List<BasicInfo> list = basicInfo3.queryAll(id, number);
 		return list;
 	}
 	public int modifyStaffName(int id,String name) throws Exception{

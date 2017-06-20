@@ -38,7 +38,12 @@ public class Stock {
 		}
 		public List queryStock(int id) throws Exception{//查询某个货物库存
 			JoinDepotDAO joindepot4 = DAOFactory.getDAO("仓库信息");
-			List list =joindepot4.queryAll(id, id);
+			List list =joindepot4.queryAll(id, 1);
+			return list;
+		}
+		public List queryStockMiddle(int id,int number) throws Exception{//查询某个货物库存
+			JoinDepotDAO joindepot4 = DAOFactory.getDAO("仓库信息");
+			List list =joindepot4.queryAll(id, number);
 			return list;
 		}
 		public int modifyStockOid(int id,String oid) throws Exception{//修改某个货物的某个库存信息，有多少个属性要多少个方法

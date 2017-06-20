@@ -1,19 +1,25 @@
 package logic;
 
+import java.util.Map;
+
 import dao.DAOFactory;
+import dao.SessionInfo;
+import dao.SessionInfoDAO;
 import dao.UserInfo;
 import dao.UserInfoDAO;
 
 public class Login {
 //登录
-	public  Session contrastLogin(int id,String password) throws Exception{
+	public  Map contrastLogin(int id,String password) throws Exception{
 	
 		//调用数据库，取出用户名和密码
 		UserInfoDAO userinfodao = DAOFactory.getDAO("登录信息");
 		
 		
 			if(userinfodao.checkUser(id, password)==0){//用户名密码做对比
-				return new Session(id,password);
+				SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
+				SessionInfo user =sessioninfo.getSessionInfo(id);
+				return sessioninfo.checkSessionInfo(user);
 			}else
 			{
 			return null;
@@ -37,6 +43,11 @@ public class Login {
 		UserInfoDAO userinfodao2 = DAOFactory.getDAO("登录信息");
 		int c =userinfodao2.delUser(id);
 		return c;
+	}
+	public int Destroy(int uid){
+		SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
+		int d =sessioninfo.destroySessionInfoByUID(uid);
+		return d;
 	}
 	
 //	public int modifyKeyword(int id,String keyword) throws Exception{
