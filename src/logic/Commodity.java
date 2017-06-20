@@ -1,9 +1,17 @@
 package logic;
 
+import java.awt.List;
+import java.sql.SQLException;
+
+import dao.DAOFactory;
+import dao.PaymentInfoDAO;
+
 public class Commodity {
 //账本
-    public void queryAllCommodity(){//查询所有账本信息，返回账本表
-		
+    public List queryAllCommodity() throws SQLException{//查询所有账本信息，返回账本表
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		List list = (List) pay.QueryAll();
+		return list;
 	}
 	public boolean addCommodity(int id,String name){//添加已销售商品到账单表中，成功返回true,失败返回false
 		return false;
