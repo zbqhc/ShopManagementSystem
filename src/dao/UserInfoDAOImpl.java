@@ -118,7 +118,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		Statement stmt = conn.createStatement();
 		UserInfo userInfo = new UserInfo();
 		try {
-			ResultSet rs = stmt.executeQuery("SELECT * FROM UserInfo");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM UserInfo WHERE id="+userid);
 			userInfo.setId(rs.getInt("ID"));
 			userInfo.setAccount(rs.getString("ACCOUNT"));
 			userInfo.setHeadship(rs.getInt("HEADSHIP"));
