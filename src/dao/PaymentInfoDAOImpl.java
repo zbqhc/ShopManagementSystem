@@ -119,11 +119,77 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 		return 0;
 	}
 
-	public float calcProfit(String date) throws SQLException {
+	public float calcProfitByDate(String date) throws SQLException {
 		// TODO 自动生成的方法存根
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT SUM(TRICE + SQUANTITY) FROM PaymentInfo WHERE TIMESTAMP LIKE '"+date+"%'");
 		System.out.println(date);
+		System.out.println(rs.getFloat("SUM(TRICE + SQUANTITY)"));
+		return 0;
+	}
+
+	public List<PaymentInfo> QueryByType(String type) throws SQLException {
+		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		String sql;
+		
+		List<PaymentInfo> paymentInfos = new ArrayList<PaymentInfo>();
+		sql = "SELECT * FROM PaymentInfo WHERE REMARKS LIKE '"+type+"%'";
+
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			PaymentInfo paymentInfo = new PaymentInfo();
+			paymentInfo.setId(rs.getInt("ID"));
+			paymentInfo.setSid(rs.getInt("SID"));
+			paymentInfo.setSname(rs.getString("SNAME"));
+			paymentInfo.setsQuantity(rs.getInt("SQUANTITY"));
+			paymentInfo.setTimeStamp(rs.getString("TIMESTAMP"));
+			paymentInfo.setTrice(rs.getFloat("TRICE"));
+			paymentInfo.setRemarks(rs.getString("REMARKS"));
+			paymentInfos.add(paymentInfo);
+		}
+		rs.close();
+		return paymentInfos;
+	}
+
+	public List<PaymentInfo> QueryBySID(int sid) throws SQLException {
+		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		String sql;
+		
+		List<PaymentInfo> paymentInfos = new ArrayList<PaymentInfo>();
+		sql = "SELECT * FROM PaymentInfo WHERE SID LIKE "+sid+"%";
+
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			PaymentInfo paymentInfo = new PaymentInfo();
+			paymentInfo.setId(rs.getInt("ID"));
+			paymentInfo.setSid(rs.getInt("SID"));
+			paymentInfo.setSname(rs.getString("SNAME"));
+			paymentInfo.setsQuantity(rs.getInt("SQUANTITY"));
+			paymentInfo.setTimeStamp(rs.getString("TIMESTAMP"));
+			paymentInfo.setTrice(rs.getFloat("TRICE"));
+			paymentInfo.setRemarks(rs.getString("REMARKS"));
+			paymentInfos.add(paymentInfo);
+		}
+		rs.close();
+		return paymentInfos;
+	}
+
+	public float calcProfitBySID(int sid) throws SQLException {
+		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT SUM(TRICE + SQUANTITY) FROM PaymentInfo WHERE SID LIKE "+sid+"%");
+		System.out.println(sid);
+		System.out.println(rs.getFloat("SUM(TRICE + SQUANTITY)"));
+		return 0;
+	}
+
+	public float calcProfitByType(String type) throws SQLException {
+		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT SUM(TRICE + SQUANTITY) FROM PaymentInfo WHERE REMARKS LIKE '"+type+"%'");
+		System.out.println(type);
 		System.out.println(rs.getFloat("SUM(TRICE + SQUANTITY)"));
 		return 0;
 	}
