@@ -13,11 +13,14 @@ public class HowToUse {
 
 		 paymentInfoDAO.addRecord(new PaymentInfo(1520010923, 2323, "显示器", 200, (float) 3000.5,  "无" ));
 		 paymentInfoDAO.addRecord(new PaymentInfo(1520010924, 2323, "显示器", 200, (float) 3000.5,  "无" ));
+		 paymentInfoDAO.addRecord(new PaymentInfo(1520010927, 2323, "显示器", 200, (float) 300.5,  "无" ));
+		 paymentInfoDAO.addRecord(new PaymentInfo(1520010928, 2323, "显示器", 200, (float) 300.5,  "无" ));
 //		 paymentInfoDAO.delRecord(1520010923);
 		paymentInfoDAO.calcProfit("2017/06/19");
-//		 for (ProvideInfo i:(List<ProvideInfo>)provideInfoDAO.queryAll(1,1)){
-//			 System.out.println(i.getId());
-//			 
-//		 }
+		 for (PaymentInfo i:(List<PaymentInfo>) paymentInfoDAO.QueryByDate("2017/06/19")){
+			 System.out.print(i.getId());
+			 System.out.println(i.getTimeStamp());
+			 
+		 }
 	}
 }

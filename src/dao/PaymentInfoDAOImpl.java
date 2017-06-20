@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import tools.Timenow;
@@ -13,14 +14,52 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 	DatabaseConnection db = new DatabaseConnection();
 	Connection conn = db.getConn();
 	
-	public List<PaymentInfo> QueryAll() {
+	public List<PaymentInfo> QueryAll() throws SQLException {
 		// TODO 自动生成的方法存根
-		return null;
+		Statement stmt = conn.createStatement();
+		String sql;
+		
+		List<PaymentInfo> paymentInfos = new ArrayList<PaymentInfo>();
+		sql = "SELECT * FROM PaymentInfo";
+
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			PaymentInfo paymentInfo = new PaymentInfo();
+			paymentInfo.setId(rs.getInt("ID"));
+			paymentInfo.setSid(rs.getInt("SID"));
+			paymentInfo.setSname(rs.getString("SNAME"));
+			paymentInfo.setsQuantity(rs.getInt("SQUANTITY"));
+			paymentInfo.setTrice(rs.getFloat("TRICE"));
+			paymentInfo.setRemarks(rs.getString("REMARKS"));
+			paymentInfo.setTimeStamp(rs.getString("TIMESTAMP"));
+			paymentInfos.add(paymentInfo);
+		}
+		rs.close();
+		return paymentInfos;
 	}
 
-	public List<PaymentInfo> QueryByDate(String date) {
+	public List<PaymentInfo> QueryByDate(String date) throws SQLException {
 		// TODO 自动生成的方法存根
-		return null;
+		Statement stmt = conn.createStatement();
+		String sql;
+		
+		List<PaymentInfo> paymentInfos = new ArrayList<PaymentInfo>();
+		sql = "SELECT * FROM PaymentInfo WHERE TIMESTAMP LIKE '"+date+"%'";
+
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			PaymentInfo paymentInfo = new PaymentInfo();
+			paymentInfo.setId(rs.getInt("ID"));
+			paymentInfo.setSid(rs.getInt("SID"));
+			paymentInfo.setSname(rs.getString("SNAME"));
+			paymentInfo.setsQuantity(rs.getInt("SQUANTITY"));
+			paymentInfo.setTimeStamp(rs.getString("TIMESTAMP"));
+			paymentInfo.setTrice(rs.getFloat("TRICE"));
+			paymentInfo.setRemarks(rs.getString("REMARKS"));
+			paymentInfos.add(paymentInfo);
+		}
+		rs.close();
+		return paymentInfos;
 	}
 
 	public boolean addRecord(PaymentInfo paymentInfo) throws SQLException {

@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface PaymentInfoDAO {
 
-	public List<PaymentInfo> QueryAll();// 查询所有流水账信息 参数无 返回list<payment>
+	public List<PaymentInfo> QueryAll() throws SQLException;// 查询所有流水账信息 参数无 返回list<payment>
 
-	public List<PaymentInfo> QueryByDate(String date);// 查询指定日期流水账信息 参数string 时间
+	public List<PaymentInfo> QueryByDate(String date) throws SQLException;// 查询指定日期流水账信息 参数string 时间
 														// 返回 list<payment>
 
 	public boolean addRecord(PaymentInfo paymentInfo) throws SQLException;// 添加一条流水记录 参数 payment对象
