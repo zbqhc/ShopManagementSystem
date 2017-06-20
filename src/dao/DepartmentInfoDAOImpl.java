@@ -168,4 +168,19 @@ public class DepartmentInfoDAOImpl implements DepartmentInfoDAO {
 		return perMap;
 	}
 
+	public DepartmentInfo queryByID(int id) throws SQLException {
+		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		String sql;
+		DepartmentInfo departmentInfo = new DepartmentInfo();
+		sql = "SELECT * FROM DepatrmentInfo WHERE ID=" + id;
+		System.out.println(sql);
+		ResultSet rs = stmt.executeQuery(sql);
+		departmentInfo.setId(id);
+		departmentInfo.setName(rs.getString("NAME"));
+		departmentInfo.setPermitMap(getPermit(id));
+		
+		return departmentInfo;
+	}
+
 }

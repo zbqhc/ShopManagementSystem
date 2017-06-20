@@ -13,6 +13,7 @@ public interface DepartmentInfoDAO {
 	public boolean updateDepartment(DepartmentInfo departmentInfo) throws SQLException;
 	
 	public List<DepartmentInfo> queryAll() throws SQLException;
+	public DepartmentInfo queryByID(int id) throws SQLException;
 	
 	public Map<String, Boolean> getPermit(int id) throws SQLException;//根据部门编号查询该部门权限
 }
