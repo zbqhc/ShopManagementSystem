@@ -1,7 +1,8 @@
 package logic;
 
-import java.awt.List;
+
 import java.sql.SQLException;
+import java.util.List;
 
 import dao.DAOFactory;
 import dao.PaymentInfo;
@@ -9,24 +10,24 @@ import dao.PaymentInfoDAO;
 
 public class Commodity {
 //账本
-    public List queryAllCommodity() throws SQLException{//查询所有账本信息，返回账本表
+    public List<PaymentInfo> queryAllCommodity() throws SQLException{//查询所有账本信息，返回账本表
 		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
-		List list = (List) pay.QueryAll();
+		List<PaymentInfo> list =  pay.QueryAll();
 		return list;
 	}
-    public List queryDateCommodity(String date) throws SQLException{//查询所有账本信息，返回账本表
+    public List<PaymentInfo> queryDateCommodity(String date) throws SQLException{//查询所有账本信息，返回账本表
 		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
-		List list = (List) pay.QueryByDate(date);
+		List<PaymentInfo> list = pay.QueryByDate(date);
 		return list;
 	}
-    public List queryTypeCommodity(String type) throws SQLException{//查询所有账本信息，返回账本表
+    public List<PaymentInfo> queryTypeCommodity(String type) throws SQLException{//查询所有账本信息，返回账本表
 		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
-		List list = (List) pay.QueryByType(type);
+		List<PaymentInfo> list =  pay.QueryByType(type);
 		return list;
 	}
-    public List querySIDCommodity(int sid) throws SQLException{//查询所有账本信息，返回账本表
+    public List<PaymentInfo> querySIDCommodity(int sid) throws SQLException{//查询所有账本信息，返回账本表
 		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
-		List list = (List) pay.QueryBySID(sid);
+		List<PaymentInfo> list =  pay.QueryBySID(sid);
 		return list;
 	}
 	public boolean addCommodity(int id,int sid,String sname,int sQuantity,float trice,String remarks) throws SQLException{//添加已销售商品到账单表中，成功返回true,失败返回false

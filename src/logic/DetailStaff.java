@@ -2,17 +2,16 @@ package logic;
 
 import java.util.List;
 
-import dao.BasicInfo;
-import dao.BasicInfoDAO;
+
 import dao.DAOFactory;
 import dao.DetailInfo;
 import dao.DetailInfoDAO;
 
 public class DetailStaff {
 
-	public List queryAllDetailStaff() throws Exception{//查询详细员工表，返回详细员工表
+	public List<DetailInfo> queryAllDetailStaff() throws Exception{//查询详细员工表，返回详细员工表
 		DetailInfoDAO basicInfo = DAOFactory.getDAO("详细信息");
-		List list = basicInfo.queryAll();
+		List<DetailInfo> list = basicInfo.queryAll();
 		return list;
 	}
 	public int addDetailStaff(int id,String contact,String officePhone,String fax,String email,String faddress) throws Exception{
@@ -31,16 +30,16 @@ public class DetailStaff {
 		return ds;
 		
 	}
-	public List queryDetailStaff(int id) throws Exception{
+	public List<DetailInfo> queryDetailStaff(int id) throws Exception{
 		//查询某个员工
 		DetailInfoDAO basicInfo3 = DAOFactory.getDAO("详细信息");
-		List list = basicInfo3.queryAll(id, 1);
+		List<DetailInfo> list = basicInfo3.queryAll(id, 1);
 		return list;
 	}
-	public List queryDetailStaffMiddle(int id,int number) throws Exception{
+	public List<DetailInfo> queryDetailStaffMiddle(int id,int number) throws Exception{
 		//查询某个员工
 		DetailInfoDAO basicInfo3 = DAOFactory.getDAO("详细信息");
-		List list = basicInfo3.queryAll(id, number);
+		List<DetailInfo> list = basicInfo3.queryAll(id, number);
 		return list;
 	}
 	public int modifyDetailStaffContact(int id,String contact) throws Exception{

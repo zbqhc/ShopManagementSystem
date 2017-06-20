@@ -8,10 +8,10 @@ import dao.JoinDepotDAO;
 
 public class Stock {
 //库存
-	 public List queryAllStock() throws Exception{
+	 public List<JoinDepot> queryAllStock() throws Exception{
 		 //查询库存信息，返回库存表
 		 JoinDepotDAO joindepot = DAOFactory.getDAO("仓库信息");
-		 List list = joindepot.queryAll();
+		 List<JoinDepot> list = joindepot.queryAll();
 		return list;
 			
 		}
@@ -36,14 +36,14 @@ public class Stock {
 			return ds;
 			
 		}
-		public List queryStock(int id) throws Exception{//查询某个货物库存
+		public List<JoinDepot> queryStock(int id) throws Exception{//查询某个货物库存
 			JoinDepotDAO joindepot4 = DAOFactory.getDAO("仓库信息");
-			List list =joindepot4.queryAll(id, 1);
+			List<JoinDepot> list =joindepot4.queryAll(id, 1);
 			return list;
 		}
-		public List queryStockMiddle(int id,int number) throws Exception{//查询某个货物库存
+		public List<JoinDepot> queryStockMiddle(int id,int number) throws Exception{//查询某个货物库存
 			JoinDepotDAO joindepot4 = DAOFactory.getDAO("仓库信息");
-			List list =joindepot4.queryAll(id, number);
+			List<JoinDepot> list =joindepot4.queryAll(id, number);
 			return list;
 		}
 		public int modifyStockOid(int id,String oid) throws Exception{//修改某个货物的某个库存信息，有多少个属性要多少个方法

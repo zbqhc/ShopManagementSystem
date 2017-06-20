@@ -9,7 +9,7 @@ import dao.DAOFactory;
 public class Staff {
 
 	//员工表
-	public List queryAllStaff() throws Exception{//查询员工表，返回员工表
+	public List<BasicInfo> queryAllStaff() throws Exception{//查询员工表，返回员工表
 		BasicInfoDAO basicInfo = DAOFactory.getDAO("基本信息");
 		List<BasicInfo> list = basicInfo.queryAll();
 		return list;
@@ -30,13 +30,13 @@ public class Staff {
 		return ds;
 		
 	}
-	public List queryStaff(int id) throws Exception{
+	public List<BasicInfo> queryStaff(int id) throws Exception{
 		//查询某个员工
 		BasicInfoDAO basicInfo3 = DAOFactory.getDAO("基本信息");
 		List<BasicInfo> list = basicInfo3.queryAll(id, 1);
 		return list;
 	}
-	public List queryStaffMiddle(int id,int number) throws Exception{
+	public List<BasicInfo> queryStaffMiddle(int id,int number) throws Exception{
 		//查询某个员工
 		BasicInfoDAO basicInfo3 = DAOFactory.getDAO("基本信息");
 		List<BasicInfo> list = basicInfo3.queryAll(id, number);

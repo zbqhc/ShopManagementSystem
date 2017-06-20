@@ -4,9 +4,6 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import dao.DAOFactory;
-import dao.DepartmentInfo;
-import dao.DepartmentInfoDAO;
-import dao.SessionInfo;
 import dao.SessionInfoDAO;
 import dao.UserInfo;
 import dao.UserInfoDAO;
@@ -32,10 +29,10 @@ public class Login {
 			
 		
 	}
-	public Map Jurisdiction(String id) throws SQLException{//权限
+	public Map<String, Boolean> Jurisdiction(String id) throws SQLException{//权限
 		
 		SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
-		Map map = sessioninfo.checkSessionInfo(id);
+		Map<String, Boolean> map = sessioninfo.checkSessionInfo(id);
 		return map;
 		
 		

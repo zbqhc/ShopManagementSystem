@@ -10,7 +10,7 @@ import dao.DepartmentInfoDAO;
 
 public class Department {
 //部门
-	public List queryAllDepartment() throws SQLException{//查询部门表，返回部门表
+	public List<DepartmentInfo> queryAllDepartment() throws SQLException{//查询部门表，返回部门表
 		DepartmentInfoDAO depa = DAOFactory.getDAO("部门信息");
 		List<DepartmentInfo> list = depa.queryAll();
 		return list;
@@ -37,7 +37,7 @@ public class Department {
 		return mdn;
 		
 	}
-	public boolean modifyDepartmentMap(int id,Map map) throws SQLException{//修改某个部门的某个信息，有多少个属性要多少个方法
+	public boolean modifyDepartmentMap(int id,Map<String,Boolean> map) throws SQLException{//修改某个部门的某个信息，有多少个属性要多少个方法
 		DepartmentInfoDAO depa = DAOFactory.getDAO("部门信息");
 		DepartmentInfo d=depa.queryByID(id);
 		boolean mdm = depa.updateDepartment(new DepartmentInfo(id,d.getName(),map));
