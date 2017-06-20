@@ -3,6 +3,8 @@ package logic;
 import java.util.Map;
 
 import dao.DAOFactory;
+import dao.DepartmentInfo;
+import dao.DepartmentInfoDAO;
 import dao.SessionInfo;
 import dao.SessionInfoDAO;
 import dao.UserInfo;
@@ -10,7 +12,7 @@ import dao.UserInfoDAO;
 
 public class Login {
 //登录
-	public  Map contrastLogin(int id,String password) throws Exception{
+	public  String contrastLogin(int id,String password) throws Exception{
 	
 		//调用数据库，取出用户名和密码
 		UserInfoDAO userinfodao = DAOFactory.getDAO("登录信息");
@@ -18,8 +20,8 @@ public class Login {
 		
 			if(userinfodao.checkUser(id, password)==0){//用户名密码做对比
 				SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
-				SessionInfo user =sessioninfo.getSessionInfo(id);
-				return sessioninfo.checkSessionInfo(user);
+				return sessioninfo.getSessionInfo(id).getId();
+				
 			}else
 			{
 			return null;
@@ -27,6 +29,14 @@ public class Login {
 		
 			
 			
+		
+	}
+	public Map Jurisdiction(String id){//权限
+		DepartmentInfoDAO department = DAOFactory.getDAO("部门信息");
+		UserInfoDAO userinfodao = DAOFactory.getDAO("登录信息");
+		SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
+		return null;
+		
 		
 	}
 
