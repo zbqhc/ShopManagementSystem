@@ -4,6 +4,7 @@ import java.awt.List;
 import java.sql.SQLException;
 
 import dao.DAOFactory;
+import dao.PaymentInfo;
 import dao.PaymentInfoDAO;
 
 public class Commodity {
@@ -13,38 +14,51 @@ public class Commodity {
 		List list = (List) pay.QueryAll();
 		return list;
 	}
-	public boolean addCommodity(int id,String name){//添加已销售商品到账单表中，成功返回true,失败返回false
-		return false;
+    public List queryDateCommodity(String date) throws SQLException{//查询所有账本信息，返回账本表
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		List list = (List) pay.QueryByDate(date);
+		return list;
+	}
+    public List queryTypeCommodity(String type) throws SQLException{//查询所有账本信息，返回账本表
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		List list = (List) pay.QueryByType(type);
+		return list;
+	}
+    public List querySIDCommodity(int sid) throws SQLException{//查询所有账本信息，返回账本表
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		List list = (List) pay.QueryBySID(sid);
+		return list;
+	}
+	public boolean addCommodity(int id,int sid,String sname,int sQuantity,float trice,String remarks) throws SQLException{//添加已销售商品到账单表中，成功返回true,失败返回false
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		boolean ac = pay.addRecord(new PaymentInfo(id,sid,sname,sQuantity,trice,remarks));
+		return ac;
 		
 	}
-	public boolean deleteCommodity(int id){//删除账本中某一已销售商品信息，成功返回true,失败返回false
-		return false;
+	public boolean deleteCommodity(int id) throws SQLException{//删除账本中某一已销售商品信息，成功返回true,失败返回false
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		boolean dc =pay.delRecord(id);
+		return dc;
 		
 	}
-	public void queryCommodity(int id){//查询某个已销售商品信息
-		
+	public float clacCommodity() throws SQLException{//计算销售总额
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		float cc = pay.calcProfit();
+		return cc;
 	}
-	public boolean modifyCommodity(int id,String name){//修改某个已销售商品的某个信息，有多少个属性要多少个方法
-		return false;
-		
+	public float clacCommodityDate(String date) throws SQLException{//计算销售总额
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		float cc = pay.calcProfitByDate(date);
+		return cc;
 	}
-//退货
-public void queryAllReturn(){//查询退货表，返回退货表
-		
+	public float clacCommodityType(String type) throws SQLException{//计算销售总额
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		float cc = pay.calcProfitByType(type);
+		return cc;
 	}
-	public boolean addReturn(int id,String name){//添加退货信息，成功返回true,失败返回false
-		return false;
-		
-	}
-	public boolean deleteReturn(int id){//删除某一条退货信息，成功返回true,失败返回false
-		return false;
-		
-	}
-	public void queryReturn(int id){//查询某一条退货信息
-		
-	}
-	public boolean modifyReturn(int id,String name){//修改某个退货信息的某个信息，有多少个属性要多少个方法
-		return false;
-		
+	public float clacCommoditySID(int sid) throws SQLException{//计算销售总额
+		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
+		float cc = pay.calcProfitBySID(sid);
+		return cc;
 	}
 }
