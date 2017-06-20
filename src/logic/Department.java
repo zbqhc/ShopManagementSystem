@@ -30,16 +30,18 @@ public class Department {
 		
 	}
 	
-	public boolean modifyDepartmentName(int id,String name){//修改某个部门的某个信息，有多少个属性要多少个方法
+	public boolean modifyDepartmentName(int id,String name) throws SQLException{//修改某个部门的某个信息，有多少个属性要多少个方法
 		DepartmentInfoDAO depa = DAOFactory.getDAO("部门信息");
-		
-		return false;
+		DepartmentInfo d=depa.queryByID(id);
+		boolean mdn = depa.updateDepartment(new DepartmentInfo(id,name,d.getPermitMap()));
+		return mdn;
 		
 	}
-	public boolean modifyDepartmentMap(int id,Map map){//修改某个部门的某个信息，有多少个属性要多少个方法
+	public boolean modifyDepartmentMap(int id,Map map) throws SQLException{//修改某个部门的某个信息，有多少个属性要多少个方法
 		DepartmentInfoDAO depa = DAOFactory.getDAO("部门信息");
-		
-		return false;
+		DepartmentInfo d=depa.queryByID(id);
+		boolean mdm = depa.updateDepartment(new DepartmentInfo(id,d.getName(),map));
+		return mdm;
 		
 	}
 }
