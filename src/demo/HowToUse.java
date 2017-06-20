@@ -11,7 +11,8 @@ public class HowToUse {
 	public static void main(String[] args) throws Exception {
 		UserInfoDAO userInfoDAO = DAOFactory.getDAO("登录信息");// 从dao工厂获取dao的实现对象
 
-		userInfoDAO.addUser(new UserInfo(1520010920, "szz", "1", 528));
+//		userInfoDAO.addUser(new UserInfo(1520010920, "szz", "1", 528));
+		userInfoDAO.checkUser(1520010920, "1");
 
 	}
 
