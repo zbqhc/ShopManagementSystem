@@ -1,5 +1,6 @@
 package logic;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import dao.DAOFactory;
@@ -31,11 +32,11 @@ public class Login {
 			
 		
 	}
-	public Map Jurisdiction(String id){//权限
-		DepartmentInfoDAO department = DAOFactory.getDAO("部门信息");
-		UserInfoDAO userinfodao = DAOFactory.getDAO("登录信息");
+	public Map Jurisdiction(String id) throws SQLException{//权限
+		
 		SessionInfoDAO sessioninfo = DAOFactory.getDAO("会话信息");
-		return null;
+		Map map = sessioninfo.checkSessionInfo(id);
+		return map;
 		
 		
 	}
