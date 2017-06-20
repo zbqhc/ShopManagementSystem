@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 public interface SessionInfoDAO extends DAO {
@@ -10,5 +11,6 @@ public interface SessionInfoDAO extends DAO {
 
 	public int destroySessionInfoByUID(int uid);//销毁给定的用户id的全部sessionInfo，当前用户所有
 
-	public Map<String, Boolean> checkSessionInfo(SessionInfo sessionInfo);//检查会话，返回权限map 否则返回null
+	public Map<String, Boolean> checkSessionInfo(String sessionID) throws SQLException;//
+	public int queryBySSID(String sessionID) throws SQLException;//
 }

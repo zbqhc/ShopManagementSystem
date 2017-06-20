@@ -1,11 +1,15 @@
+//已修改 date:20170620 19:41
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Map;
 
 import tools.EncoderHash;
+import tools.Pertran;
 import tools.Timenow;
 
 public class SessionInfoDAOImpl implements SessionInfoDAO {
@@ -107,20 +111,53 @@ public class SessionInfoDAOImpl implements SessionInfoDAO {
 		return res;
 	}
 
-	public Map<String, Boolean> checkSessionInfo(SessionInfo sessionInfo) {
+	public Map<String, Boolean> checkSessionInfo(String sessionID) throws SQLException {
 		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		String sql;
+
+		sql = "SELECT * FROM DepatrmentInfo WHERE ID=" + queryBySSID(sessionID);
+		System.out.println(sql);
+		ResultSet rs = stmt.executeQuery(sql);
+
+		Map<String, Boolean> perMap = new HashMap<String, Boolean>();
+		perMap.put("人事管理", Pertran.pertran(rs.getInt("P0")));
+		perMap.put("销售管理", Pertran.pertran(rs.getInt("P1")));
+		perMap.put("退货管理", Pertran.pertran(rs.getInt("P2")));
+		perMap.put("采购管理", Pertran.pertran(rs.getInt("P3")));
+		perMap.put("库存管理", Pertran.pertran(rs.getInt("P4")));
+		perMap.put("账本管理", Pertran.pertran(rs.getInt("P5")));
+		perMap.put("供应商管理", Pertran.pertran(rs.getInt("P6")));
+		perMap.put("用户管理", Pertran.pertran(rs.getInt("P7")));
+		perMap.put("权限管理", Pertran.pertran(rs.getInt("P8")));
+		rs.close();
+		return perMap;
+	}
+
+	public int queryBySSID(String sessionID) throws SQLException {
+		// TODO 自动生成的方法存根
+		Statement stmt = conn.createStatement();
+		int userid;
+		try {
+			ResultSet rs = stmt.executeQuery("SELECT * FROM SESSIONINFO WHERE ID='"+sessionID+"'");
+			userid=Integer.valueOf(rs.getString("UID"));
+			stmt.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("查询失败");
+			stmt.close();
+			return 0;
+		}
 		
-		return null;
+		return userid;
 	}
 
-	public int destroySessionInfoByUID(String id) {
-		// TODO 自动生成的方法存根
-		return 0;
-	}
+	
 
-	public int destroySessionInfoByID(int uid) {
-		// TODO 自动生成的方法存根
-		return 0;
-	}
+	
+
+	
+
+	
 
 }
