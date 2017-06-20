@@ -1,10 +1,8 @@
 package dao;
 
-import java.util.List;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
 
@@ -36,7 +34,6 @@ public class DAOFactory {
 			e.printStackTrace();
 		}
 
-		String simplename = interfaceClass;
 		if (prop.getProperty(interfaceClass) == null) {
 			System.out.println("Œ¥’“µΩ");
 			return null;
