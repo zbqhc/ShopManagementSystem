@@ -9,18 +9,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class MainWindow extends JFrame {
 
 	public static void main(String[] args) {
-		MainWindow tbc = new MainWindow();
-	   tbc.setVisible(true);
+		
+		
 	}
 
 	private JPanel imagePanel;
 	private ImageIcon background;
 	
-	public MainWindow(){
+	public MainWindow(String sessionid){
 		background = new ImageIcon("Í¼Æ¬\\Í¼Æ¬\\Ö÷½çÃæ±³¾°.jpg");
 		JLabel label = new JLabel(background);
 		label.setSize(background.getIconWidth(),background.getIconHeight());

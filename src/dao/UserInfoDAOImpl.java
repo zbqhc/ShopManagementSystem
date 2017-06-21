@@ -117,15 +117,19 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		// TODO 自动生成的方法存根
 		Statement stmt = conn.createStatement();
 		UserInfo userInfo = new UserInfo();
+		ResultSet rs =null;
 		try {
-			ResultSet rs = stmt.executeQuery("SELECT * FROM UserInfo WHERE id="+userid);
+			rs = stmt.executeQuery("SELECT * FROM UserInfo WHERE id="+userid);
+			
 			userInfo.setId(rs.getInt("ID"));
 			userInfo.setAccount(rs.getString("ACCOUNT"));
 			userInfo.setHeadship(rs.getInt("HEADSHIP"));
 			userInfo.setKeyWord(rs.getString("KEYWORD"));
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("查询失败");
+			rs.close();
 			return null;
 		}
 

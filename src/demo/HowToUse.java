@@ -15,8 +15,11 @@ public class HowToUse {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-//		UserInfoDAO userInfoDAO = DAOFactory.getDAO("登录信息");// 从dao工厂获取dao的实现对象
-		Commodity ca =new Commodity();
+		UserInfoDAO userInfoDAO = DAOFactory.getDAO("登录信息");// 从dao工厂获取dao的实现对象
+		
+		userInfoDAO.addUser(new UserInfo(1, "test", "1", 0));
+		
+//		Commodity ca =new Commodity();
 //		PaymentInfoDAO pay = DAOFactory.getDAO("账单信息");
 //		boolean c = ca.addCommodity(1, 2, "dsa", 5, 2, "");
 //		userInfoDAO.addUser(new UserInfo(1520010920, "szz", "1", 528));
@@ -29,8 +32,10 @@ public class HowToUse {
 //			System.out.println(i.getSname());
 //		}
 //		System.out.println(ca.clacCommodityDate("2017/06/20"));
-		Login d = new Login();
-		Map<String, Boolean> map = d.Jurisdiction("1520010907");
+//		Login d = new Login();
+//		Map<String, Boolean> map = d.Jurisdiction("1520010907");
+		
+		
 		
 	}
 
