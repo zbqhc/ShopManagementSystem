@@ -158,7 +158,7 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 		String sql;
 		
 		List<PaymentInfo> paymentInfos = new ArrayList<PaymentInfo>();
-		sql = "SELECT * FROM PaymentInfo WHERE SID LIKE "+sid+"%";
+		sql = "SELECT * FROM PaymentInfo WHERE SID LIKE "+sid;
 
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {
@@ -179,7 +179,7 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 	public float calcProfitBySID(int sid) throws SQLException {
 		// TODO 自动生成的方法存根
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT SUM(TRICE + SQUANTITY) FROM PaymentInfo WHERE SID LIKE "+sid+"%");
+		ResultSet rs = stmt.executeQuery("SELECT SUM(TRICE + SQUANTITY) FROM PaymentInfo WHERE SID LIKE "+sid);
 		System.out.println(sid);
 		System.out.println(rs.getFloat("SUM(TRICE + SQUANTITY)"));
 		return 0;
