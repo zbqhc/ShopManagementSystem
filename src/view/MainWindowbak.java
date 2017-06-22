@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-public class MainWindow extends JFrame {
+public class MainWindowbak extends JFrame {
 
 	public static void main(String[] args) {
 		
@@ -21,7 +21,7 @@ public class MainWindow extends JFrame {
 	private JPanel imagePanel;
 	private ImageIcon background;
 	
-	public MainWindow(String sessionid){
+	public MainWindowbak(String sessionid){
 		background = new ImageIcon("Í¼Æ¬\\Í¼Æ¬\\Ö÷½çÃæ±³¾°.jpg");
 		JLabel label = new JLabel(background);
 		label.setSize(background.getIconWidth(),background.getIconHeight());

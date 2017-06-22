@@ -76,7 +76,8 @@ public class LoginWindows extends JFrame {
 							JOptionPane.showMessageDialog(null, "’Àªß√˚”Î√‹¬Î≤ª∆•≈‰",
 									"µ«¬º ß∞‹", JOptionPane.ERROR_MESSAGE);
 						} else {
-							new MainWindow(sessionid).setVisible(true);
+							 
+							new Test(sessionid,login.Jurisdiction(sessionid));
 							setVisible(false);
 						}
 					}
@@ -121,7 +122,7 @@ public class LoginWindows extends JFrame {
 		this.add(pan3);
 
 		this.setTitle("µ«¬º");
-		this.setBounds(200, 100, 300, 200);
+		this.setBounds(500, 400, 300, 200);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setVisible(true);
