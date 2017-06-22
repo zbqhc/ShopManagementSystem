@@ -43,35 +43,37 @@ public class AddUserbasic {
 
 	/**
 	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddUserbasic window = new AddUserbasic();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public AddUserbasic() {
-		initialize();
-	}
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					AddUserbasic window = new AddUserbasic();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+//
+//	/**
+//	 * Create the application.
+//	 */
+//	public AddUserbasic() {
+//		System.out.println("ok");
+//		this.setVisible(true);
+////		initialize();
+//	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	AddUserbasic() {
 		frame = new JFrame();
 		frame.setTitle("\u6DFB\u52A0\u5458\u5DE5");
-		frame.setBounds(100, 100, 282, 277);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 300, 400);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -94,6 +96,7 @@ public class AddUserbasic {
 							Integer.parseInt(textField_5.getText())) == 0) {
 						JOptionPane.showMessageDialog(null, "添加成功", "成功",
 								JOptionPane.ERROR_MESSAGE);
+						frame.setVisible(false);
 					}else {
 						JOptionPane.showMessageDialog(null, "请检查表单项是否正确", "添加失败",
 								JOptionPane.ERROR_MESSAGE);
@@ -142,7 +145,7 @@ public class AddUserbasic {
 		panel_3.add(lblid, "6, 4, right, default");
 
 		textField = new JTextField();
-		textField.setText("111111");
+		textField.setText("");
 		panel_3.add(textField, "8, 4, left, default");
 		textField.setColumns(10);
 
@@ -150,7 +153,7 @@ public class AddUserbasic {
 		panel_3.add(label_1, "6, 6, right, default");
 
 		textField_1 = new JTextField();
-		textField_1.setText("22222");
+		textField_1.setText("");
 		panel_3.add(textField_1, "8, 6, left, default");
 		textField_1.setColumns(10);
 
@@ -158,7 +161,7 @@ public class AddUserbasic {
 		panel_3.add(label_2, "6, 8, right, default");
 
 		textField_2 = new JTextField();
-		textField_2.setText("333333");
+		textField_2.setText("");
 		panel_3.add(textField_2, "8, 8, left, default");
 		textField_2.setColumns(10);
 
@@ -166,7 +169,7 @@ public class AddUserbasic {
 		panel_3.add(label_3, "6, 10, right, default");
 
 		textField_3 = new JTextField();
-		textField_3.setText("444444");
+		textField_3.setText("");
 		panel_3.add(textField_3, "8, 10, left, default");
 		textField_3.setColumns(10);
 
@@ -174,7 +177,7 @@ public class AddUserbasic {
 		panel_3.add(label_4, "6, 12, right, default");
 
 		textField_4 = new JTextField();
-		textField_4.setText("555555");
+		textField_4.setText("");
 		panel_3.add(textField_4, "8, 12, left, default");
 		textField_4.setColumns(10);
 
@@ -182,9 +185,10 @@ public class AddUserbasic {
 		panel_3.add(label_5, "6, 14, right, default");
 
 		textField_5 = new JTextField();
-		textField_5.setText("6666");
+		textField_5.setText("");
 		panel_3.add(textField_5, "8, 14, left, default");
 		textField_5.setColumns(10);
+		frame.setVisible(true);
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {
@@ -206,4 +210,5 @@ public class AddUserbasic {
 			}
 		});
 	}
+	
 }
